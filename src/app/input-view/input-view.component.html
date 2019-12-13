@@ -1,0 +1,50 @@
+<style>
+  input#btn:disabled{
+    background-color: #d6d6d6;
+  }
+  input#btn{
+    background-color: lightblue;
+  }
+</style>
+<form (ngSubmit)="onSubmit()" [formGroup]="petInfoGroup" style="    width: 300px;
+    margin: auto;
+    padding: 10px;
+    background: #f7f7f7;">
+  <div>
+    <label for="">Pet Name:</label><br>
+    <input type="text" name="" id="" formControlName="name" style="width: 100%;
+    margin-bottom: 10px;
+    height: 25px;
+    border: 1px solid #d6d6d6;"><br>
+    <span style="color: #ff6058" *ngIf="petInfoGroup.get('name').dirty&&!petInfoGroup.get('name').valid">Please enter name.</span>
+  </div>
+  <div class="">
+    <label for="">Pet Kind:</label><br>
+    <select formControlName="kind" style="width: 100%;
+    margin-bottom: 10px;
+    height: 30px;
+    border: 1px solid #d6d6d6;">
+      <option value="">Select</option>
+      <option value="Dog">Dog</option>
+      <option value="Cat">Cat</option>
+      <option value="Rabit">Rabbit</option>
+    </select>
+    <br>
+    <span style="color: #ff6058" *ngIf="petInfoGroup.get('kind').dirty&&!petInfoGroup.get('kind').valid">Please select kind of pet.</span>
+  </div>
+  <div>
+    <label for="">Gender:</label><br>
+    <input type="radio" name="" value="Male" id="" formControlName="gender"> <label for="">Male</label>
+    <input type="radio" name="" value="Female" id="" formControlName="gender"> <label for="">Female</label>
+    <br>
+    <span style="color: #ff6058" *ngIf="petInfoGroup.get('gender').dirty&&!petInfoGroup.get('gender').valid">Please select kind of pet.</span>
+
+  </div>
+  <div style="height: 40px;">
+    <input type="submit" value="Submit" id="btn" [disabled]="!petInfoGroup.valid" style="    height: 35px;
+    border: none;
+    width: 80px;
+    margin-top: 10px;
+    float: right;">
+  </div>
+</form>
